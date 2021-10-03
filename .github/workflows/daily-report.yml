@@ -9,7 +9,7 @@ on:
 #      - master
   schedule:
     - cron: 15 2 * * *
-  workflow_dispatch:
+#  workflow_dispatch:
 
 jobs:
   job1:
