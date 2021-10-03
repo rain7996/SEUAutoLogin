@@ -9,6 +9,8 @@ on:
 #      - master
   schedule:
     - cron: '0 18 * * *'
+    - cron: '0 19 * * *'
+    - cron: '0 20 * * *'
 #  workflow_dispatch:
 
 jobs:
@@ -29,3 +31,4 @@ jobs:
     - name: do report
       run: |
         python ./dayReport.py -u ${{ secrets.CARD_NUM }} -p ${{ secrets.PASSWORD }}
+
