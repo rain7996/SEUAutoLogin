@@ -4,12 +4,12 @@
 name: daily report
 
 on:
-#  push:
-#    branches:
-#      - master
+#   push:
+#     branches:
+#       - master
   schedule:
-    - cron: '21 18,19,20 * * *'
-#  workflow_dispatch:
+    - cron: '10 * * * *'
+  workflow_dispatch:
 
 jobs:
   job1:
