@@ -29,4 +29,18 @@ jobs:
     - name: do report
       run: |
         python ./dayReport.py -u ${{ secrets.CARD_NUM }} -p ${{ secrets.PASSWORD }}
-
+    - name: Get Date
+      run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+    - name: send success email
+      uses: dawidd6/action-send-mail@master
+      with: 
+        server_address: smtp.qq.com
+        server_port: 465
+        username: ${{ secrets.MY_EMAILSERVER_USER }}
+        password: ${{ secrets.MY_EMAILSERVER_PASSWD }}
+        subject: (${{env.REPORT_DATE}}) 自动打卡成功
+        to: ${{ secrets.MYEMAIL }}
+        from: Github Actions
+        
+        
+        
