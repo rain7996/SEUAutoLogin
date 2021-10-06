@@ -36,7 +36,7 @@ jobs:
       with: 
         server_address: smtp.qq.com
         server_port: 465
-        username: ${{ secrets.MY_EMAILSERVER_USER }}
+        username: ${{ secrets.MYEMAIL }}
         password: ${{ secrets.MY_EMAILSERVER_PASSWD }}
         subject: (${{env.REPORT_DATE}}) 自动打卡成功
         to: ${{ secrets.MYEMAIL }}
