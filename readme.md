@@ -169,7 +169,7 @@ pip install -r requirements.txt
    ![image-20210405125412870](https://cdn.jsdelivr.net/gh/luzy99/cdn@latest/img/20210405130145.png)
    
    如果需要添加每日打卡成功自动发送邮件至qq邮箱功能（默认开启），需要额外添加key:`MYEMAIL`, `MY_EMAILSERVER_PASSWD` 
-   前者为邮件地址（xxx@xxx格式），后者为邮箱的smtp授权码。
+   前者为邮件地址（xxx@xxx格式），后者为邮箱的smtp授权码。  
    开启qq邮箱smtp服务请参考<https://jingyan.baidu.com/article/6079ad0eb14aaa28fe86db5a.html>
    
    如果不需要邮件服务，则在.github/workflows/daily-report.yml文件中注释掉以下内容：
