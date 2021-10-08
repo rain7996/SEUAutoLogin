@@ -167,8 +167,28 @@ pip install -r requirements.txt
    ​	如下图：
 
    ![image-20210405125412870](https://cdn.jsdelivr.net/gh/luzy99/cdn@latest/img/20210405130145.png)
+   
+   如果需要添加每日打卡成功自动发送邮件至qq邮箱功能（默认开启），需要额外添加key:`MYEMAIL`, `MY_EMAILSERVER_PASSWD` 
+   前者为邮件地址（xxx@xxx格式），后者为邮箱的smtp授权码
+   开启qq邮箱smtp服务请参考<https://jingyan.baidu.com/article/6079ad0eb14aaa28fe86db5a.html>
+   
+   如果不需要邮件服务，则在.github/workflows/daily-report.yml文件中注释掉以下内容：
+   ```
+    - name: Get Date
+      run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+    - name: send success email
+      uses: dawidd6/action-send-mail@master
+      with: 
+        server_address: smtp.qq.com
+        server_port: 465
+        username: ${{ secrets.MYEMAIL }}
+        password: ${{ secrets.MY_EMAILSERVER_PASSWD }}
+        subject: (${{env.REPORT_DATE}}) 自动打卡成功
+        to: ${{ secrets.MYEMAIL }}
+        from: Github Actions
+   ```
 
-4. 至此已经设置完成（默认每天北京时间**8点31分**上报），可以先手动运行一下试试。
+4. 至此已经设置完成（默认每天北京时间**7点00分**上报），可以先手动运行一下试试。
 
    步骤如下图：
 
